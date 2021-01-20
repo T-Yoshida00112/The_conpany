@@ -1,0 +1,611 @@
+//変数////////////////////////////////////
+$text-main-color: #333333;
+$text-sub-color: #fff;
+$text-glay-color: #CCCCCC;
+$bg-bace-color: #fff;
+$bg-main-color: #3F51B5;
+$bg-sub-color: #EFEFEF;
+$active-color: #E81919;
+$normal-color: #707070;
+$border-color: #707070;
+$table-sub-color: #999999;
+
+//共通/////////////////////////////////////
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー　　値
+ 'sm': 'screen and (max-width: 576px)',
+ 'md': 'screen and (max-width: 768px)',
+ 'lg': 'screen and (max-width: 992px)',
+ 'xl': 'screen and (max-width: 1200px)'
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+    
+
+body{
+    line-height: 1.5;
+    font-family: "Yu Gothic";
+    font-size: 16px;
+    color: $text-main-color;
+
+    @include mq(md){
+        font-size:15px;
+    }
+    @include mq(sm){
+        fontsize: 13px;
+    }
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+    color: $text-sub-color;
+    :hover{
+        opacity: 0.7;
+    }
+}
+
+.container{
+    width: 90%;
+    max-width: 1108px;
+    margin: auto;
+}
+
+.clear::after{
+    content:"";
+    clear :both;
+    display: block;
+}
+
+.active{
+    border-bottom: solid 3px $active-color;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.txt-active{
+    color:$active-color;
+}
+
+.under-bar{
+    border-bottom: solid 1px $border-color;   
+}
+.btn{
+    color: $text-sub-color;
+    font: Bold 38px/61px Yu Gothic;
+    border-radius: 12px;
+}
+
+.btn-contact{
+    margin: auto;
+    padding: 17px 81px;
+    background-color: $bg-main-color;
+}
+
+.section-title{
+    padding-top: 68px;
+    margin-bottom: 68px;
+    text-align: center;
+    padding-bottom: 44px;
+    font-weight: bold;
+    font-size: 60px;
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        left:50%;
+        top: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 76px;
+        height: inherit;
+        border-bottom: 3px solid $bg-main-color;
+    }
+}
+//header////////////////////////////////////
+header{
+    background-color: $bg-main-color;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10000;
+}
+
+.header-inner{
+    max-width: 1088px;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header-left{
+    float: left;
+}
+
+.header-logo img{
+    margin-top: 31px;
+    margin-bottom: 30px;
+}
+
+.header-right{
+    float:right;
+}
+.header-nav-item{
+    margin-top: 40px;
+    margin-bottom: 39px;
+}
+
+.header-nav-item{
+    float:left;
+    margin-left: 40px;
+}
+
+//top////////////////////////
+.top{
+    background: transparent url('../image/mainvisual/mainvisual.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    backdrop-filter: blur(undefined);
+    -webkit-backdrop-filter: blur(undefined);
+    color: $text-main-color;
+    text-align: center; 
+    height: 700px;
+}
+
+.top-title{
+    padding-top: 250px;
+    font: Bold 68px/108px Yu Gothic;
+
+    @include mq(md){
+        font-size:42px;
+    }
+    @include mq(sm){
+        fontsize: 30px;
+    }
+}
+
+.top-lead-message{
+    font: Bold 38px/61px Yu Gothic;
+    padding-bottom: 82px;
+
+    @include mq(md){
+        font-size:26px;
+        padding-bottom: 62px;
+    }
+    @include mq(sm){
+        fontsize: 18px;
+        padding-bottom: 48px;
+    }
+}
+
+//cards/////////////////////////////
+.cards{
+    background-color: $bg-sub-color;
+    padding-bottom: 117px;
+}
+
+.cards-wrappar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    :hover{
+        border: solid 1px $bg-main-color;    
+    }
+}
+
+.card{
+    background-color: $bg-bace-color;
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 16px;
+    
+    @include mq(md) {
+        width: 48%;
+    }
+
+    @include mq(sm) {
+        width: 95%;
+    }
+
+    h3{
+        font-size: 20px;
+        margin: 20px 0;
+        pointer-events: none;
+    }
+    p{
+        pointer-events: none;
+    }
+    
+    img{
+        width:100%;
+        height: 161px;
+        pointer-events: none;
+    }
+}
+
+.news-wrapper{
+    max-width: 838px;
+    margin: auto;
+    line-height: 30px;
+}
+
+.news-item{
+    padding: 20px 4px;
+    border-bottom: 1px solid $normal-color;
+    display: flex;
+    @include mq(md){
+        display: block;   
+    }
+
+    .news-info{
+        width: 223px;
+        display: flex;
+        padding-left: 7px;
+    }
+    .news-item-time{
+        width: 86px;
+    }
+
+    .news-item-label{
+        display: block;
+        text-align: center;
+        background-color: $normal-color;
+        width: 100px;
+        height: 30px;
+        margin-left: 30px;
+        border-radius: 3px;
+        padding: auto;
+        color:$text-sub-color;
+    }
+    .label2{
+        background-color: $bg-main-color;
+    }
+    .label3{
+        background-color: $active-color;
+    }
+
+    .news-content{
+        width: calc(100%-223px);
+        padding-left: 30px;
+
+        @include mq(md){
+            padding-left: 0;   
+        }
+    }
+}
+
+#news-item-last{
+    border: none;
+}
+
+.news-more{
+    text-align: center;
+    color: $active-color;
+    font-weight: bold;
+    padding-bottom: 32px;
+}
+
+.price{
+    background-color: $bg-sub-color;
+}
+
+.price-pic{
+    float: left;
+
+    img{
+        width: 360px;
+        
+        @include mq(lg){
+            width: 300px;
+        }
+
+        @include mq(md){
+            width: 80%;            
+        }
+    } 
+
+    @include mq(md){
+        clear: both;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    @include mq(sm){
+        display: none;
+    }
+}
+
+.price-info{
+    float: right;
+
+    @include mq(md){
+        clear: both;
+        width: 100%;
+    }
+}
+
+.price-table{
+    border-collapse: collapse;
+    border: solid 1px $border-color;
+    width: 610px;
+    padding-bottom: 20px;
+
+    @include mq(xl){
+        width: 500px;
+    }
+    @include mq(lg){
+        width: 375px;
+    }
+    @include mq(md){
+        clear: both;
+        width: 100%;
+    }
+    th, td{
+        border: solid 1px $border-color;
+        vertical-align: middle;
+        padding: 18px 0;
+    }
+    th{
+        color: $text-sub-color;
+        background-color: $table-sub-color;
+        width: 160px;
+        @include mq(lg){
+            width: 120px;
+        }
+        @include mq(md){
+            clear: both;
+            width: 160px;
+        }
+    }
+
+    td{
+        text-align: right;
+        width: 225px;
+        @include mq(lg){
+            width: 170px;
+        }
+        @include mq(md){
+            clear: both;
+            width: 225px;
+        }
+    }
+}
+
+.price-comment{
+    padding-top: 20px;
+    margin-bottom: 102px;
+}
+
+.access{
+    padding-bottom: 88px;
+}
+
+.access-map{
+    position: relative;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    @include mq(md){
+        height: 300px;
+    }
+
+    iframe {
+        position: absolute;
+        display: block;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+address{
+    padding-left: 183px;
+    padding-top: 40px;
+    padding-bottom: 36px;
+    font-style: normal;
+    @include mq(md){
+        padding-left: 30px;
+    }
+    @include mq(sm){
+        padding-left: 10px;
+    }
+}
+.map-btn-wrapper{
+    text-align: center;
+}
+
+.btn-map{
+    background-color: $bg-main-color;
+    width: 305px;
+    height: 56px;
+    font-size: 20px;
+    line-height: 56px;
+}
+
+
+//contact//
+
+.contact{
+    background-color: $bg-sub-color;
+    padding-bottom: 120px;
+    form{
+        padding-bottom: 40px;
+    }
+}
+
+.contact-bg{
+    max-width: 800px;
+    background-color: $bg-bace-color;
+    padding-bottom: 50px;
+    width: 90%;
+    margin: auto;
+    padding: 57px 43px 0px 52px;
+
+    @include mq(md){
+        padding: 30px 25px 0px 25px;
+    }
+    @include mq(sm){
+        padding: 20px 18px 0px 17px;
+    }
+    
+    .txt-box{
+        height: 60px;
+        width: calc(100% - 177px);
+        float: right;
+        @include mq(md){
+            width: calc(100% - 165px);
+        }
+        @include mq(sm){
+            width: calc(100% - 130px);
+        }
+    }
+}
+
+.contact-content{
+    line-height: 60px;
+    padding-bottom: 50px;
+
+    .contact-item{
+        font-weight: bold;
+    }
+}
+
+.must{
+    &::after{
+        content: "必須";
+        background-color: $active-color;
+        border-radius: 2px;
+        color: $text-sub-color;
+        top: 20px;
+        padding: 0px 10px;
+    }
+}
+
+textarea{
+    height: 240px;
+    padding-top: 20px;
+    width: calc(100% - 177px);
+    float: right;
+    color: $text-glay-color;
+    @include mq(md){
+        width: calc(100% - 165px);
+    }
+    @include mq(sm){
+        width: calc(100% - 130px);
+    }
+}
+.height-text-area{
+    height: 240px;
+}
+
+.contact-radio{
+    padding-top: 40px;
+    padding-bottom: 50px;
+
+    span{
+        padding-right: 30px;
+        line-height: 30px;
+    }
+}
+
+.contact-checkbox{
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+
+.btn-wrappar{
+    text-align: center;
+}
+.btn-submit{
+    background-color: $bg-main-color;
+    width: 305px;
+    height: 56px;
+    font-size: 20px;
+    line-height: 56px;
+}
+
+footer{
+    background: linear-gradient(#666666 0%, #333333 100%);
+    color: $text-sub-color;
+
+    .footer-inner{
+        padding: 60px 40px 10px 40px;
+        display: flex;
+        flex: wrap;
+    }
+    .footer-info{
+        width: 20%;
+        min-width: 250px;
+        .footer-logo{
+            width: 200px;
+            padding-bottom: 2px;
+        }
+        address{
+            padding-left: 0;
+        }
+        p{
+            padding-bottom: 10px;
+        }
+    }
+
+    .footer-menu{
+        width: 80%;
+        ul{
+            display: flex;
+            justify-content: center;
+            li{
+                font-size: 20px;
+                padding-right: 25px;
+                &:last-child{
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .footer-btn{
+        width: 20%;
+        min-width: 250px;
+        display: flex;
+        justify-content: end;
+        .round{
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            margin-left: 15px;
+            &:hover{
+                border: 4px solid white;
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .light-blue-round{
+            background-color: lightblue;
+        }
+        .blue-round{
+            background-color: $bg-main-color;
+        }
+        .red-round{
+            background-color: #E81919;
+        }
+    }
+
+    .copy-right{
+        text-align: center;
+        padding-bottom: 10px;
+    }
+}

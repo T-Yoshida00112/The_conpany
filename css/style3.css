@@ -1,0 +1,109 @@
+body {
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a :hover {
+  opacity: 0.7;
+}
+
+.container {
+  width: 90%;
+  max-width: 980px;
+  margin: auto;
+}
+
+.clear::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.btn {
+  color: #fff;
+  font: Bold 38px/61px Yu Gothic;
+  padding: 17px 81px;
+  border-radius: 12px;
+}
+
+.btn-contact {
+  margin: auto;
+  background-color: #3F51B5;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10000;
+}
+
+.header-top {
+  background-color: #3F51B5;
+  text-align: center;
+  height: 80px;
+}
+
+.header-logo img {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.header-nav-bg {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  overflow: auto;
+}
+
+.header-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  max-width: 1088px;
+  margin: 0 auto;
+}
+
+.header-nav-item {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 20%;
+  background-color: #3F51B5;
+  border-right: solid 1px #fff;
+  text-align: center;
+}
+
+.active {
+  background-color: #E81919;
+}
+
+.top {
+  background: transparent url("../image/mainvisual/mainvisual.png") 0% 0% no-repeat padding-box;
+  opacity: 1;
+  backdrop-filter: blur(undefined);
+  -webkit-backdrop-filter: blur(undefined);
+  color: #333333;
+  text-align: center;
+  height: 700px;
+}
+
+.top-title {
+  padding-top: 250px;
+  font: Bold 68px/108px Yu Gothic;
+}
+
+.top-lead-message {
+  font: Bold 38px/61px Yu Gothic;
+  padding-bottom: 82px;
+}
